@@ -104,38 +104,50 @@ document.getElementById("gumb5").onclick = function(){
 
 //get mediane
 function pStevila() {
-  
-axios.get("http://localhost:5500/api/mediana/get")
-  .then(function(response) {
-  const stevila = response.data;
-  const stevilaB = document.getElementById("stevilaB");
-  const stevilaC = document.getElementById("stevilaC");
+  axios.get("http://localhost:5500/api/mediana/get")
+    .then(function(response) {
+      const stevila = response.data;
+      const stevilaB = document.getElementById("stevilaB");
+      const stevilaC = document.getElementById("stevilaC");
 
-  // API result je [ 2, 5, 324 ]
-  stevila.forEach(function(stevilo) {
-  const rowB = document.createElement("tr");
-  const rowC = document.createElement("tr");
-  const cellB = document.createElement("td");
-  const cellC = document.createElement("td");
+      // API result je [ 2, 5, 324 ]
+      stevila.forEach(function(stevilo) {
+        const rowB = document.createElement("tr");
+        const rowC = document.createElement("tr");
+        const cellB = document.createElement("td");
+        const cellC = document.createElement("td");
 
-  const stev = document.createTextNode(stevilo);
+        const stev = document.createTextNode(stevilo);
+        cellB.appendChild(stev);
+        rowB.appendChild(cellB);
+        stevilaB.appendChild(rowB);
 
-  cellB.appendChild(stev);
-  rowB.appendChild(cellB);
-  stevilaB.appendChild(rowB);
+        const binarnoStevilo = stevilo.toString(2);
+        const binarnoStev = document.createTextNode(binarnoStevilo);
+        cellC.appendChild(binarnoStev);
+        rowC.appendChild(cellC);
+        stevilaC.appendChild(rowC);
+      });
 
-  const binarnoStevilo = stevilo.toString(2);
-  const binarnoStev = document.createTextNode(binarnoStevilo);
-
-  cellC.appendChild(binarnoStev);
-  rowC.appendChild(cellC);
-  stevilaC.appendChild(rowC);
-  });
-  })
-  .catch(function(error) {
-  console.error(error);
-  });
-}
+      // Izpis matematične sredine
+      axios.get("http://localhost:5500/api/mediana/avg")
+        .then(function(response) {
+          const avgValue = response.data;
+          const stevilaD = document.getElementById("stevilaD");
+          avgValue.forEach(function(avgValue) {
+          const rowD = document.createElement("tr");
+          const cellD = document.createElement("td");
+          const avgText = document.createTextNode(avgValue);
+          cellD.appendChild(avgText);
+          rowD.appendChild(cellD);
+          stevilaD.appendChild(rowD);
+        })
+      })
+    .catch(function(error) {
+      console.error(error);
+    });
+});
+};
 //pStevila()
 
 const btn = document.getElementById("post");

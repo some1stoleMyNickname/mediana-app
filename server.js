@@ -19,7 +19,7 @@ connection.connect((err) => {
     return;
   }
   console.log('Povezava z bazo je vzpostavljena');
-  connection.query("CREATE TABLE IF NOT EXISTS tabela (ID INT AUTO_INCREMENT PRIMARY KEY, CREATED_AT DATETIME, MEDIANA INT)", (err, result) => {
+  connection.query("CREATE TABLE IF NOT EXISTS tabela (ID INT AUTO_INCREMENT PRIMARY KEY, CREATED_AT DATETIME, MEDIANA INT, AVERAGE INT)", (err, result) => {
     if (err) {
     console.error("Napaka pri ustvarjanju tabele: ", err);
     return;
@@ -43,6 +43,20 @@ app.get("/api/mediana/get", (req, res) => {
   });
 });
 // ...
+app.get("/api/mediana/avg", (req, res) => {
+  const query = "SELECT AVERAGE FROM tabela ORDER BY CREATED_AT DESC LIMIT 25";
+
+  connection.query(query, (err, result) => {
+    if (err) {
+    console.error("Napaka pri izvajanju poizvedbe: ", err);
+    res.status(500).send("Napaka pri izvajanju poizvedbe");
+    return;
+    }
+
+    res.json(result.map(row => row.AVERAGE));
+  });
+});
+
 
 app.post("/api/mediana/post", (req, res) => {
   console.log(req.body);
@@ -50,11 +64,19 @@ app.post("/api/mediana/post", (req, res) => {
   const timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
   if (!stevilke) {
-    res.status(400).send("Ni podanih števil");
+    res.status(400).send(alert("Ni podanih števil"));
     return;
   } else {
     const numbers = stevilke.split(',').map(Number);
-
+    
+    //izračun matematične sredine
+    function getAvg(numbers) {
+    const average = numbers.reduce((acc, c) => acc + c, 0);
+    return average / numbers.length;
+    }
+    const result1 = getAvg(numbers);
+    
+    //izračun mediane
     function median(numbers) {
     const sorted = Array.from(numbers).sort((a, b) => a - b);
     const middle = Math.floor(sorted.length / 2);
@@ -67,8 +89,9 @@ app.post("/api/mediana/post", (req, res) => {
 
     const result = median(numbers);
     console.log('Mediana:', result);
+    console.log('Sredina:', result1);
 
-    const query = `INSERT INTO tabela (CREATED_AT, MEDIANA) VALUES ('${timestamp}', ${result})`; 
+    const query = `INSERT INTO tabela (CREATED_AT, MEDIANA, AVERAGE) VALUES ('${timestamp}', ${result}, ${result1})`; 
 
     connection.query(query, (err, result) => {
     if (err) {
