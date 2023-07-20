@@ -74,7 +74,7 @@ app.post("/api/mediana/post", (req, res) => {
     const average = numbers.reduce((acc, c) => acc + c, 0);
     return average / numbers.length;
     }
-    const result1 = getAvg(numbers);
+    const result1 = Math.round(getAvg(numbers));
     
     //izračun mediane
     function median(numbers) {
@@ -86,6 +86,7 @@ app.post("/api/mediana/post", (req, res) => {
     }
     return sorted[middle];
     }
+
 
     const result = median(numbers);
     console.log('Mediana:', result);
