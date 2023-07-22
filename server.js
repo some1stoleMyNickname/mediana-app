@@ -43,7 +43,7 @@ app.get("/api/mediana/get", (req, res) => {
   });
 });
 // ...
-app.get("/api/mediana/avg", (req, res) => {
+app.get("/api/arithmetic/get", (req, res) => {
   const query = "SELECT AVERAGE FROM tabela ORDER BY CREATED_AT DESC LIMIT 25";
 
   connection.query(query, (err, result) => {

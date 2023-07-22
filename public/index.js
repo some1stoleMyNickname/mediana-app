@@ -1,6 +1,3 @@
-//let stevilkeglobal = []
-
-
 const nakljucneStevilke = (min, max, times) => {
   const nakljucno = []
 
@@ -102,6 +99,7 @@ document.getElementById("gumb5").onclick = function(){
 };
 
 //api get 
+
 function calculateXOR(numbers) {
   let xorValue = 0;
 
@@ -115,7 +113,7 @@ function calculateXOR(numbers) {
 function pStevila() {
   Promise.all([
     axios.get("http://localhost:5500/api/mediana/get"),
-    axios.get("http://localhost:5500/api/mediana/avg")
+    axios.get("http://localhost:5500/api/arithmetic/get")
   ])
   .then(function(responses) {
     const stevila = responses[0].data;
