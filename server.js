@@ -23,7 +23,7 @@ connection.connect((err) => {
     if (err) {
     console.error("Napaka pri ustvarjanju tabele: ", err);
     return;
-    }
+    } 
     console.log("Ustvarjena tabela");
   });
 });
@@ -58,7 +58,7 @@ app.get("/api/arithmetic/get", (req, res) => {
 });
 
 
-app.post("/api/mediana/post", (req, res) => {
+app.post("/api/mediana/calculate", (req, res) => {
   console.log(req.body);
   const stevilke = req.body.stevilke;
   const timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -67,18 +67,18 @@ app.post("/api/mediana/post", (req, res) => {
     res.status(400).send(alert("Ni podanih števil"));
     return;
   } else {
-    const numbers = stevilke.split(',').map(Number);
+    const vseStevilke = stevilke.split(',').map(Number);
     
     //izračun matematične sredine
-    function getAvg(numbers) {
-    const average = numbers.reduce((acc, c) => acc + c, 0);
-    return average / numbers.length;
+    function getAvg(stevilke) {
+    const average = stevilke.reduce((acc, c) => acc + c, 0);
+    return average / stevilke.length;
     }
-    const result1 = Math.round(getAvg(numbers));
+    const result1 = Math.round(getAvg(vseStevilke));
     
     //izračun mediane
-    function median(numbers) {
-    const sorted = Array.from(numbers).sort((a, b) => a - b);
+    function median(stevilke) {
+    const sorted = Array.from(stevilke).sort((a, b) => a - b);
     const middle = Math.floor(sorted.length / 2);
 
     if (sorted.length % 2 === 0) {
@@ -88,7 +88,7 @@ app.post("/api/mediana/post", (req, res) => {
     }
 
 
-    const result = median(numbers);
+    const result = median(vseStevilke);
     console.log('Mediana:', result);
     console.log('Sredina:', result1);
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Grafični vmesnik za vnos števil</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+</head>
+<body>
+
+<h1>Grafični vmesnik za vnos števil</h1>
+
+<label for="slider">Izberite številko:</label>
+<input type="text" id="numberInput">
+<div id="slider"></div>
+
+<script>
+  $(document).ready(function() {
+    // Nastavimo drsnik na elementu z id "slider"
+    $("#slider").slider({
+      // Določimo najmanjšo in največjo vrednost, ki jih lahko uporabnik izbere
+      min: 0,
+      max: 1000,
+      // Ob spremembi drsnika posodobimo tudi vrednost v polju z id "numberInput"
+      slide: function(event, ui) {
+        $("#numberInput").val(ui.value);
+      }
+    });
+    // Nastavimo začetno vrednost v polju z id "numberInput"
+    $("#numberInput").val($("#slider").slider("value"));
+  });
+</script>
+
+</body>
+</html>

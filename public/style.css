@@ -4,49 +4,19 @@
 
 
 .container {
-width: 1170px;
-margin-left: auto;
-margin-right: auto;
-position: relative;
-min-height: 100vh;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 100vh;
 }
 
 .container-about {
   width: 60%;
-margin-left: auto;
-margin-right: auto;
-position: relative;
-min-height: 100vh;
-}
-
-.btn-group-vertical #gumbki button {
-display: flex;
-margin-bottom: 5px; 
-width: 400px;
-}
-
-#gumbki .btn {
-  background-color: white;
-  border-color: rgb(32, 33, 33);
-  border-radius: 2px;
-  border-style: solid;
-  border-width: 2px;
-  color: rgb(32, 33, 33);
-  height: 36px;
-  font-weight: bold;
-  width: 105px;
-  cursor: pointer;
-  margin-bottom: 8px;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-#gumbki .btn:hover {
-  background-color: rgb(32, 33, 33);
-  color: white;
-}   
-
-#gumbki .btn:active{
-  opacity: 0.7;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 100vh;
 }
 
 body {
@@ -89,4 +59,52 @@ overflow: hidden;
 padding: 20px;
 padding-bottom: 15px;
 }
+
+.about-text p {
+  background-color: rgba(225, 245, 250, 0.716);
+}
+
+.slider {
+  align-items: center;
+  width: 66vh;
+  margin: 20px;
+  background-color: #9e2626;
+  cursor: pointer;
+}
+
+.btn-group-vertical #mediana button, .btn-group-vertical #gumbki button {
+  margin-bottom: 5px; 
+  width: 42vh;
+}
+
+#izberiSt, #mediana .btn, #gumbki .btn {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  height: 36px;
+  font-weight: bold;
+  width: 20vh;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+#izberiSt:hover, #mediana .btn:hover, #gumbki .btn:hover {
+  background-color: rgb(32, 33, 33);
+  color: white;
+}   
+
+#izberiSt.btn:active, #mediana .btn:active, #gumbki .btn:active{
+  opacity: 0.7;
+}
+
+#izberiSt .btn:hover, #gumbki .btn:hover, #mediana .btn:hover {
+  background-color: rgb(32, 33, 33);
+  color: white;
+}   
+
+
 

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mediana</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script
-src="https://code.jquery.com/jquery-3.3.1.js"
-integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-crossorigin="anonymous">
-</script>
-<script> 
-$(function(){
-$("#header").load("header.html"); 
-$("#footer").load("footer.html"); 
-});
-</script>
-<script src="index.js" defer></script>
+  <title>Mediana</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+  </script>
+  <script> 
+  $(function(){
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+  });
+  </script>
+  <script src="index.js" defer></script>
 </head>
-
 <body>
+  <div>
   <div id="header"></div>
   <div>
   <div class="container">
@@ -35,42 +35,48 @@ $("#footer").load("footer.html");
         <div class="row">
           <div class="col-6">
             <div id="gumbki">
-              <button id="gumb1" class="btn">Generiraj števila</button>
+              <button id="generateRandomNumbers" class="btn btn-lg btn-block">Generiraj števila</button>
             </div>
           </div>
           <div class="col-6">
             <div id="gumbki">
-              <button id="gumb4" class="btn">Dodaj število</button>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div id="gumbki">
-              <button id="gumb2" class="btn">Odstrani naključno število</button>
-            </div>
-          </div>
-          <div class="col-6">
-            <div id="gumbki">
-              <button id="gumb3" class="btn">Izbris vseh števil</button>
+              <button id="enoStNakljucno" class="btn btn-lg btn-block">Dodaj število</button>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <div id="gumbki">
-                <button id="gumb5" class="btn">Izberi število</button>
-              </div>
+              <button id="izbris1" class="btn btn-lg btn-block">Odstrani naključno število</button>
             </div>
+          </div>
+          <div class="col-6">
+            <div id="gumbki">
+              <button id="izbrisVse" class="btn btn-lg btn-block">Izbris vseh števil</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
             <div class="col-6">
-              <div id="gumbki">
-                <button id="post" class="btn">Izračunaj mediano</button>
+              <div id="mediana">
+                <button id="post" class="btn btn-lg btn-block">Izračunaj mediano</button>
               </div>
+            </div>
+          </div>
+          <div>
+            <div id="form">
+              <form method="post" name="selectNumberSlider">  
+                <input type="range" id="slider" class="slider" name="amountRange" min="1" max="1000" value="1" oninput="this.form.amountInput.value=this.value" />  
+                <div>
+                <input type="number" id="input" name="amountInput" min="1" max="1000" value="1" oninput="this.form.amountRange.value=this.value" />
+                <input type="button" class="btn" id="izberiSt" onclick="formSubmit()" value="Dodaj število!">
+                </div>
+              </form>
             </div>
           </div>
         </div>
       <body id="pStevila" class="info">
-        <div class="table-responsive col-3">
+        <div class="table-responsive col-2">
         <table class="table table-striped" id="TabelaSt">
         <thead class="table-dark">
           <tr>
@@ -82,19 +88,7 @@ $("#footer").load("footer.html");
         </table>
       </div>
       <body id="pStevila" class="info">
-        <div class="table-responsive col-3">
-        <table class="table table-striped" id="TabelaSt">
-        <thead class="table-dark">
-          <tr>
-          <th>Binarna vrednost</th>
-          </tr>
-        </thead>
-          <tbody id="stevilaC" class="info">
-          </tbody>
-        </table>
-      </div>
-      <body id="pStevila" class="info">
-        <div class="table-responsive col-3">
+        <div class="table-responsive col-2">
         <table class="table table-striped" id="TabelaSt">
         <thead class="table-dark">
           <tr>
@@ -106,7 +100,31 @@ $("#footer").load("footer.html");
         </table>
       </div>
       <body id="pStevila" class="info">
-        <div class="table-responsive col-3">
+        <div class="table-responsive col-2">
+        <table class="table table-striped" id="TabelaSt">
+        <thead class="table-dark">
+          <tr>
+          <th>Binarna vrednost M</th>
+          </tr>
+        </thead>
+          <tbody id="stevilaC" class="info">
+          </tbody>
+        </table>
+      </div>
+      <body id="pStevila" class="info">
+        <div class="table-responsive col-2">
+        <table class="table table-striped" id="TabelaSt">
+        <thead class="table-dark">
+          <tr>
+          <th>Binarna vrednost A</th>
+          </tr>
+        </thead>
+          <tbody id="stevilaF" class="info">
+          </tbody>
+        </table>
+      </div>
+      <body id="pStevila" class="info">
+        <div class="table-responsive col-2">
         <table class="table table-striped" id="TabelaSt">
         <thead class="table-dark">
           <tr>
@@ -117,6 +135,7 @@ $("#footer").load("footer.html");
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   </div>
   <div id="footer"></div>

@@ -1,29 +1,32 @@
+//
 const nakljucneStevilke = (min, max, times) => {
-  const nakljucno = []
+  const oneRandomNumber = []
 
   for (let i = 0; i < times; i++) {
-      nakljucno.push(Math.floor(Math.random() * (1000 - 1) + 1));
+      oneRandomNumber.push(Math.floor(Math.random() * (1000 - 1) + 1));
   }
-  return nakljucno;
+  return oneRandomNumber;
 };
 
+//funkcije ki se sprožijo ob nalaganju okna
 window.onload = function() {
-  zgeneriraj();
+  generateRandomNumbers();
   pStevila();
-
 };
 
-document.getElementById("gumb1").onclick = function(){
-  zgeneriraj();
+//generiraj 5 random števil
+document.getElementById("generateRandomNumbers").onclick = function(){
+  generateRandomNumbers();
 };
 
-function zgeneriraj() {
+function generateRandomNumbers() {
   const stevilke = nakljucneStevilke(1, 1000, 5);
   const vseStevilke = document.getElementById("stevilke");
   vseStevilke.innerHTML = stevilke.join(", ");
 };
 
-document.getElementById("gumb2").onclick = function(){
+//izbris enega naključno izbranega števila
+document.getElementById("izbris1").onclick = function(){
   izbris();
 };
 
@@ -39,8 +42,8 @@ stevilke.splice(rIzbris, 1);
 vsaSt.innerHTML = stevilke.join(", ");
 };
 
-
-document.getElementById("gumb4").onclick = function(){
+//eno naključno generirano število
+document.getElementById("enoStNakljucno").onclick = function(){
   eno_st();
 }
 
@@ -50,60 +53,53 @@ function eno_st() {
   const stevilke = nakljucneStevilke(1, 1000, 1);
   const novaStevila = stevilke.join(", ");
   if (pStevila) {
-    const tStevila = pStevila.split(", ").lenght;
-
-
+    const tStevila = pStevila.split(", ").length;
     vseStevilke.innerHTML = pStevila + ", " + novaStevila;
   } else {
     vseStevilke.innerHTML = novaStevila;
   }
 };
 
-document.getElementById("gumb3").onclick = function(){
+//izbris vseh
+document.getElementById("izbrisVse").onclick = function(){
   izbrisV();
 };
 
-//izbris vseh
 function izbrisV() {
   const abc = document.getElementById("stevilke");
   abc.innerHTML = [];
 };
 
+
+function formSubmit(){
+  var form = document.forms["selectNumberSlider"];
+  var inputValue = form["amountInput"].value;
+
+console.log(inputValue)
+}
+
 //dodaj število
-document.getElementById("gumb5").onclick = function(){
-  const vns_st = prompt("Vnesi število");
-  const stevilka = Number(vns_st);
-  if (isNaN(stevilka)) {
-    alert("Niste vnesli številke");
-    return;
-  }
-  if (stevilka < 1 ){
-    alert("Številka je manjša od 1");
-    return;
-  }
-  if (stevilka > 1000){
-    alert("Število je večje od 1000");
-    return;
-    }
+function formSubmit(){
+  const form = document.forms["selectNumberSlider"];
+  const inputValue = form["amountInput"].value;
 
-    const elt = document.getElementById("stevilke");
-    if (elt.innerHTML){
-      const stevilke = elt.innerHTML.split(", ").map(Number);
-      stevilke.push(stevilka);
-      elt.innerHTML = stevilke.join(", ");
-    }
-    else {
-      elt.innerHTML = stevilka;
-    }
-
+  const addNumber = document.getElementById("stevilke")
+  
+  if (addNumber.innerHTML){
+    const stevilke = addNumber.innerHTML.split(", ").map(Number);
+    stevilke.push(inputValue);
+    addNumber.innerHTML = stevilke.join(", ");
+  }
+  else {
+    const stevilke = [inputValue];
+    addNumber.innerHTML = stevilke.join(", ");
+  }
 };
 
-//api get 
-
-function calculateXOR(numbers) {
+function calculateXOR(stevilke) {
   let xorValue = 0;
 
-  numbers.forEach(function (number) {
+  stevilke.forEach(function (number) {
     xorValue ^= number;
   });
 
@@ -123,6 +119,7 @@ function pStevila() {
     const stevilaC = document.getElementById("stevilaC");
     const stevilaD = document.getElementById("stevilaD");
     const stevilaE = document.getElementById("stevilaE");
+    const stevilaF = document.getElementById("stevilaF");
 
     // Izračun XOR med "stevilo" in "avgValue" na vsakem mestu
     const xorValues = [];
@@ -150,13 +147,22 @@ function pStevila() {
       stevilaC.appendChild(rowC);
     });
 
-    avgValue.forEach(function(avgValue) {
+    avgValue.forEach(function(avgValu) {
       const rowD = document.createElement("tr");
+      const rowF = document.createElement("tr");
       const cellD = document.createElement("td");
-      const avgText = document.createTextNode(avgValue);
+      const cellF = document.createElement("td");
+      
+      const avgText = document.createTextNode(avgValu);
       cellD.appendChild(avgText);
       rowD.appendChild(cellD);
       stevilaD.appendChild(rowD);
+      
+      const binarnostevilo1 = avgValu.toString(2);
+      const binarnoStev1 = document.createTextNode(binarnostevilo1);
+      cellF.appendChild(binarnoStev1);
+      rowF.appendChild(cellF);
+      stevilaF.appendChild(rowF);
     });
 
     xorValues.forEach(function(xorValue) {
@@ -174,14 +180,13 @@ function pStevila() {
 }
 
 //pStevila()
-
 const btn = document.getElementById("post");
 
 btn.addEventListener("click", () => {
   let stevilke = document.getElementById("stevilke").innerHTML;
 
   console.log("running")
-  axios.post("http://localhost:5500/api/mediana/post", {
+  axios.post("http://localhost:5500/api/mediana/calculate", {
   stevilke: stevilke
   }, {headers: {"Content-Type": "application/json"} })
   .then((response) => {
@@ -193,4 +198,7 @@ btn.addEventListener("click", () => {
   });
 });
 
-
+function oninput(elem) {
+  let a = elem.value;
+console.log(a);
+}
