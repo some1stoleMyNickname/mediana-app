@@ -120,6 +120,7 @@ function pStevila() {
     const stevilaD = document.getElementById("stevilaD");
     const stevilaE = document.getElementById("stevilaE");
     const stevilaF = document.getElementById("stevilaF");
+    const stevilaG = document.getElementById("stevilaG");
 
     // Izračun XOR med "stevilo" in "avgValue" na vsakem mestu
     const xorValues = [];
@@ -167,11 +168,20 @@ function pStevila() {
 
     xorValues.forEach(function(xorValue) {
       const rowE = document.createElement("tr");
+      const rowG = document.createElement("tr");
       const cellE = document.createElement("td");
+      const cellG = document.createElement("td");
       const xorText = document.createTextNode(xorValue);
       cellE.appendChild(xorText);
       rowE.appendChild(cellE);
       stevilaE.appendChild(rowE);
+
+      //binarno xor
+      const binarnoXor = xorValue.toString(2);
+      const binarnoXor1 = document.createTextNode(binarnoXor);
+      cellG.appendChild(binarnoXor1);
+      rowG.appendChild(cellG);
+      stevilaG.appendChild(rowG);
     });
   })
   .catch(function(error) {
@@ -202,3 +212,4 @@ function oninput(elem) {
   let a = elem.value;
 console.log(a);
 }
+

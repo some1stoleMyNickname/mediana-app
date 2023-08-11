@@ -21,6 +21,7 @@
 
 body {
 background-image: url('https://epe.brightspotcdn.com/6c/2d/8075c8fe4730ad452f170468720f/math-algebra-1458664845.jpg');
+font-family: 'Roboto', 'sans-serif';
 background-size: cover;
 background-repeat: no-repeat;
 margin-bottom: 0px;
@@ -74,7 +75,7 @@ padding-bottom: 15px;
 
 .btn-group-vertical #mediana button, .btn-group-vertical #gumbki button {
   margin-bottom: 5px; 
-  width: 42vh;
+  width: 30vh;
 }
 
 #izberiSt, #mediana .btn, #gumbki .btn {
@@ -86,7 +87,6 @@ padding-bottom: 15px;
   color: rgb(32, 33, 33);
   height: 36px;
   font-weight: bold;
-  width: 20vh;
   cursor: pointer;
   margin-bottom: 8px;
   transition: background-color 0.15s, color 0.15s;
