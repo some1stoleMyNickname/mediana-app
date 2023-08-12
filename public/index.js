@@ -105,7 +105,7 @@ function calculateXOR(stevilke) {
 
   return xorValue;
 }
-
+//podatki za tabelo
 function pStevila() {
   Promise.all([
     axios.get("http://localhost:5500/api/mediana/get"),
@@ -122,7 +122,7 @@ function pStevila() {
     const stevilaF = document.getElementById("stevilaF");
     const stevilaG = document.getElementById("stevilaG");
 
-    // Izračun XOR med "stevilo" in "avgValue" na vsakem mestu
+    // Izračun XOR med stevilo in avgValue na vsakem mestu
     const xorValues = [];
     for (let i = 0; i < stevila.length && i < avgValue.length; i++) {
       const xorValue = calculateXOR([stevila[i], avgValue[i]]);
@@ -130,58 +130,47 @@ function pStevila() {
     }
 
     // Izpis vrednosti v ustrezne stolpce
+    //mediana izpis
     stevila.forEach(function(stevilo) {
-      const rowB = document.createElement("tr");
-      const rowC = document.createElement("tr");
-      const cellB = document.createElement("td");
-      const cellC = document.createElement("td");
+      const cellB = document.createElement("tr");
+      const cellC = document.createElement("tr");
 
       const stev = document.createTextNode(stevilo);
       cellB.appendChild(stev);
-      rowB.appendChild(cellB);
-      stevilaB.appendChild(rowB);
-
+      stevilaB.appendChild(cellB);
+      //mediana binarno
       const binarnoStevilo = stevilo.toString(2);
       const binarnoStev = document.createTextNode(binarnoStevilo);
       cellC.appendChild(binarnoStev);
-      rowC.appendChild(cellC);
-      stevilaC.appendChild(rowC);
+      stevilaC.appendChild(cellC);
     });
-
+    //aritmetična sredina
     avgValue.forEach(function(avgValu) {
-      const rowD = document.createElement("tr");
-      const rowF = document.createElement("tr");
-      const cellD = document.createElement("td");
-      const cellF = document.createElement("td");
+      const cellD = document.createElement("tr");
+      const cellF = document.createElement("tr");
       
       const avgText = document.createTextNode(avgValu);
       cellD.appendChild(avgText);
-      rowD.appendChild(cellD);
-      stevilaD.appendChild(rowD);
-      
+      stevilaD.appendChild(cellD);
+      //binarno aritmetična
       const binarnostevilo1 = avgValu.toString(2);
       const binarnoStev1 = document.createTextNode(binarnostevilo1);
       cellF.appendChild(binarnoStev1);
-      rowF.appendChild(cellF);
-      stevilaF.appendChild(rowF);
+      stevilaF.appendChild(cellF);
     });
-
+    //xor število
     xorValues.forEach(function(xorValue) {
-      const rowE = document.createElement("tr");
-      const rowG = document.createElement("tr");
-      const cellE = document.createElement("td");
-      const cellG = document.createElement("td");
+      const cellE = document.createElement("tr");
+      const cellG = document.createElement("tr");
       const xorText = document.createTextNode(xorValue);
       cellE.appendChild(xorText);
-      rowE.appendChild(cellE);
-      stevilaE.appendChild(rowE);
+      stevilaE.appendChild(cellE);
 
       //binarno xor
       const binarnoXor = xorValue.toString(2);
       const binarnoXor1 = document.createTextNode(binarnoXor);
       cellG.appendChild(binarnoXor1);
-      rowG.appendChild(cellG);
-      stevilaG.appendChild(rowG);
+      stevilaG.appendChild(cellG);
     });
   })
   .catch(function(error) {
@@ -189,7 +178,6 @@ function pStevila() {
   });
 }
 
-//pStevila()
 const btn = document.getElementById("post");
 
 btn.addEventListener("click", () => {
