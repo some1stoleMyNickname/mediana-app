@@ -7,3 +7,8 @@ DB_USERNAME = "root"
 DB_PASSWORD = ''
 DB_DATABASE = "baza"
 
+npm install
+
+nodemon server.js
+
+http://localhost:5500/index.html
