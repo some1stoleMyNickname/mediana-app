@@ -53,7 +53,7 @@ function eno_st() {
   const stevilke = nakljucneStevilke(1, 1000, 1);
   const novaStevila = stevilke.join(", ");
   if (pStevila) {
-    const tStevila = pStevila.split(", ").length;
+    //const tStevila = pStevila.split(", ").length;
     vseStevilke.innerHTML = pStevila + ", " + novaStevila;
   } else {
     vseStevilke.innerHTML = novaStevila;
@@ -69,14 +69,6 @@ function izbrisV() {
   const abc = document.getElementById("stevilke");
   abc.innerHTML = [];
 };
-
-
-function formSubmit(){
-  var form = document.forms["selectNumberSlider"];
-  var inputValue = form["amountInput"].value;
-
-console.log(inputValue)
-}
 
 //dodaj število
 function formSubmit(){
@@ -179,8 +171,9 @@ const btn = document.getElementById("post");
 
 btn.addEventListener("click", () => {
   let stevilke = document.getElementById("stevilke").innerHTML;
-
-  console.log("running")
+  if (stevilke.trim() === "") {
+    alert("Ni podanih števil!");}
+  else {
   axios.post("http://localhost:5500/api/mediana/calculate", {
   stevilke: stevilke
   }, {headers: {"Content-Type": "application/json"} })
@@ -191,6 +184,7 @@ btn.addEventListener("click", () => {
   .catch((error) => {
   console.error(error);
   });
+}
 });
 
 function oninput(elem) {
