@@ -84,7 +84,7 @@ app.post("/api/mediana/calculate", async (req, res) => {
           AVERAGE: result1
         });
 
-      console.log("Podatki uspešno vstavljeni:", newRecord);
+      console.log("Podatki uspešno vstavljeni:", JSON.stringify(newRecord));
 
         res.status(200).send("Podatki uspešno vstavljeni");
       } catch (err) {

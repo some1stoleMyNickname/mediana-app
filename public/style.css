@@ -9,6 +9,14 @@
   margin: 0 auto;
 }
 
+.container-about {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 90vh;
+  margin: 0 auto;
+}
 
 body {
 background-image: url('https://epe.brightspotcdn.com/6c/2d/8075c8fe4730ad452f170468720f/math-algebra-1458664845.jpg');
@@ -24,7 +32,11 @@ align-items: center;
 text-align: center;
 }
   
-h1, h2 {
+h2 {
+  color: rgb(88, 88, 88);
+}
+
+h1, h2, h3 {
 text-align: center;
 text-shadow: 2px 2px 2px rgba(55, 56, 56, 0.356);
 font-weight: bold;
@@ -44,16 +56,48 @@ padding: 20px;
 padding-bottom: 15px;
 }
 
+.about-text {
+text-align: center;
+}
+
 .about-text p {
-  background-color: rgba(225, 245, 250, 0.716);
+  text-shadow: 0px 0px 5px white;
+  font-weight: bold;
+  color: rgb(1, 19, 82);
 }
 
 .slider {
-  align-items: center;
-  width: 66vh;
-  margin: 20px;
-  background-color: #9e2626;
-  cursor: pointer;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 60svh; /* Full-width */
+  height: 5px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 10px; /* Set a specific slider handle width */
+  height: 10px; /* Slider handle height */
+  background: rgb(32, 33, 33); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 12px; /* Set a specific slider handle width */
+  height: 12px; /* Slider handle height */
+  background: rgb(128, 128, 128); /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }
 
 .btn-group-vertical #mediana button, .btn-group-vertical #gumbki button {
@@ -95,8 +139,6 @@ table {
   border-spacing: 0;
   font-weight: bold;
   font-family: 'Roboto', 'sans-serif';
-  border-color: rgb(32, 33, 33);
-  border-radius: 2px;
   border-style: solid;
   border-width: 2px;
   margin-bottom: 8px;
@@ -110,26 +152,22 @@ tr {
   vertical-align: middle;
 }
 
-.reservation__fontcolor tr th{
-  color: red;
+table.reservation__fontcolor td{
+  color: rgb(249, 247, 247);
 }
 
 tr:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(34, 32, 32, 0.5);
   }
 
  tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(34, 32, 32, 0.85);
   }
 
-  .slider::-webkit-slider-thumb {
-    background: gray;
+table.tbody tr:hover td{
+    color: red;
   }
-  
-  .slider::-moz-range-thumb {
-    background: gray;
-  }
-  
-  .slider::-ms-thumb {
-    background: gray;
+
+  table.reservation__fontcolor tr:hover td{
+    color: rgb(224, 232, 102);
   }

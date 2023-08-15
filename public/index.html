@@ -61,12 +61,12 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-12">
                 <div id="form">
                   <form method="post" name="selectNumberSlider">  
-                  <input type="range" id="slider" class="slider" name="amountRange" min="1" max="1000" value="1" oninput="this.form.amountInput.value=this.value" />  
+                  <input type="range" id="slider" class="slider" name="amountRange" min="1" max="1000" value="500" oninput="this.form.amountInput.value=this.value" />  
                   <div>
-                  <input type="number" id="input" name="amountInput" min="1" max="1000" value="1" oninput="this.form.amountRange.value=this.value" />
+                  <input type="number" id="input" name="amountInput" min="1" max="1000" value="500" oninput="this.form.amountRange.value=this.value" />
                   <input type="button" class="btn" id="izberiSt" onclick="formSubmit()" value="Dodaj število!">
                   </div>
                   </form>
@@ -75,21 +75,16 @@
             </div>
           </div>
           <div>
-            <table class="table table-bordered table-hover table-sm table-responsive-md" id="TabelaSt">
+            <table class="table table-bordered table-hover table-sm table-responsive-md reservation__fontcolor" id="TabelaSt">
               <thead class="table-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Mediana</th>
-                  <th scope="col">Aritmetična<br>
-                    sredina</th>
-                  <th scope="col">XOR<br>
-                    število</th>
-                  <th scope="col">Binarno število<br>
-                    mediana</th>
-                  <th scope="col">Binarno število<br>
-                    aritmetično</th>
-                  <th scope="col">Binarno število<br>
-                    XOR</th>
+                  <th scope="col">Aritmetična<br>sredina</th>
+                  <th scope="col">XOR<br>število</th>
+                  <th scope="col">Mediana<br>Binarno število</th>
+                  <th scope="col">Aritmetično<br>Binarno število</th>
+                  <th scope="col">XOR<br>Binarno število</th>
                 </tr>
               </thead>
               <tbody>  
