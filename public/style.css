@@ -105,7 +105,23 @@ text-align: center;
   height: 40;
 }
 
-#mediana .btn, #gumbki .btn {
+#mediana .btn {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  width: 66.2%;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+  min-width: 215px;
+}
+
+ #gumbki .btn {
   background-color: white;
   border-color: rgb(32, 33, 33);
   border-radius: 5px;
@@ -128,7 +144,7 @@ text-align: center;
   border-style: solid;
   border-width: 2px;
   color: rgb(32, 33, 33);
-  width: 17%;
+  width: 15%;
   height: 40px;
   font-weight: bold;
   cursor: pointer;
