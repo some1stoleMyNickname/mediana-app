@@ -67,56 +67,74 @@ text-align: center;
 }
 
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none;  
   appearance: none;
-  width: 60svh; /* Full-width */
-  height: 5px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  width: 60vh; 
+  height: 5px; 
+  background: #d3d3d3; 
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
   transition: opacity .2s;
 }
 
-/* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1; 
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 10px; /* Set a specific slider handle width */
-  height: 10px; /* Slider handle height */
-  background: rgb(32, 33, 33); /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 10px; 
+  height: 10px;
+  background: rgb(32, 33, 33);
+  cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 12px; /* Set a specific slider handle width */
-  height: 12px; /* Slider handle height */
-  background: rgb(128, 128, 128); /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 12px;
+  height: 12px; 
+  background: rgb(128, 128, 128); 
+  cursor: pointer; 
 }
 
 .btn-group-vertical #mediana button, .btn-group-vertical #gumbki button {
   margin-bottom: 5px; 
-  width: 30vh;
+  width: 50px;
+  height: 40;
 }
 
-#izberiSt, #mediana .btn, #gumbki .btn {
+#mediana .btn, #gumbki .btn {
   background-color: white;
   border-color: rgb(32, 33, 33);
-  border-radius: 2px;
+  border-radius: 5px;
   border-style: solid;
   border-width: 2px;
   color: rgb(32, 33, 33);
-  height: 36px;
+  width: 33%;
+  height: 40px;
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 8px;
   transition: background-color 0.15s, color 0.15s;
+  min-width: 215px;
+}
+
+#izberiSt {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  width: 17%;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+  min-width: 110px;
 }
 
 #izberiSt:hover, #mediana .btn:hover, #gumbki .btn:hover {
@@ -134,9 +152,6 @@ text-align: center;
 }   
 
 table {
-  margin: 0 auto;
-  overflow-x: auto;
-  border-spacing: 0;
   font-weight: bold;
   font-family: 'Roboto', 'sans-serif';
   border-style: solid;
@@ -171,3 +186,7 @@ table.tbody tr:hover td{
   table.reservation__fontcolor tr:hover td{
     color: rgb(224, 232, 102);
   }
+
+ #myChart {
+  background-color: rgba(34, 32, 32, 0.85);
+ }

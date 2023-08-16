@@ -13,9 +13,9 @@ const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME
 async function testPovezava() {
 try {
   await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
+  console.log('Povezava z bazo podatkov je vzpostavljena.');
 } catch (error) {
-  console.error('Unable to connect to the database:', error);
+  console.error('Napaka pri povezavi z bazo podatkov: ', error);
 }
 }
 

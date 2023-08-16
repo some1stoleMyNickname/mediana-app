@@ -161,10 +161,67 @@ function pStevila() {
 
         tbody.appendChild(row);
       }
+      izrisGrafa(medianaValues, averageValues, xorValues);
     })
     .catch(function(error) {
       console.error(error);
     });
+}
+
+function izrisGrafa(medianaValues, averageValues, xorValues) {
+  // Izris grafa
+  const ctx = document.getElementById('myChart').getContext('2d');
+
+  const labels = medianaValues.map((_, i) => (i + 1).toString()); 
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Mediana',
+        data: medianaValues,
+        borderColor: 'red',
+        backgroundColor: 'transparent',
+      },
+      {
+        label: 'Aritmetična sredina',
+        data: averageValues,
+        borderColor: 'blue',
+        backgroundColor: 'transparent',
+      },
+      {
+        label: 'XOR število',
+        data: xorValues,
+        borderColor: 'green',
+        backgroundColor: 'transparent',
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true, // Postavi y-oso na začetek pri vrednosti 0
+      },
+    },
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Graf vrednosti',
+      },
+    },
+  };
+  
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: false
+      },
+  });
 }
 
 const btn = document.getElementById("post");
