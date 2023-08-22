@@ -71,22 +71,25 @@ function izbrisV() {
 };
 
 //dodaj število
-function formSubmit(){
+function formSubmit() {
   const form = document.forms["selectNumberSlider"];
   const inputValue = form["amountInput"].value;
 
-  const addNumber = document.getElementById("stevilke")
-  
-  if (addNumber.innerHTML){
-    const stevilke = addNumber.innerHTML.split(", ").map(Number);
-    stevilke.push(inputValue);
-    addNumber.innerHTML = stevilke.join(", ");
+  if (inputValue >= 1 && inputValue <= 1000) {
+    const addNumber = document.getElementById("stevilke");
+
+    if (addNumber.innerHTML) {
+      const stevilke = addNumber.innerHTML.split(", ").map(Number);
+      stevilke.push(inputValue);
+      addNumber.innerHTML = stevilke.join(", ");
+    } else {
+      const stevilke = [inputValue];
+      addNumber.innerHTML = stevilke.join(", ");
+    }
+  } else {
+    alert("Vnesite veljavno število med 1 in 1000.");
   }
-  else {
-    const stevilke = [inputValue];
-    addNumber.innerHTML = stevilke.join(", ");
-  }
-};
+}
 
 function calculateXOR(stevilke) {
   let xorValue = 0;
@@ -201,7 +204,7 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
   const options = {
     scales: {
       y: {
-        beginAtZero: true, // Postavi y-oso na začetek pri vrednosti 0
+        beginAtZero: true, // Postavi y-os na začetek pri vrednosti 0
       },
     },
     plugins: {
@@ -209,8 +212,7 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
         position: 'top',
       },
       title: {
-        display: true,
-        text: 'Graf vrednosti',
+        display: false,
       },
     },
   };
@@ -248,6 +250,4 @@ function oninput(elem) {
   let a = elem.value;
 console.log(a);
 }
-
-
 
