@@ -53,7 +53,6 @@ function eno_st() {
   const stevilke = nakljucneStevilke(1, 1000, 1);
   const novaStevila = stevilke.join(", ");
   if (pStevila) {
-    //const tStevila = pStevila.split(", ").length;
     vseStevilke.innerHTML = pStevila + ", " + novaStevila;
   } else {
     vseStevilke.innerHTML = novaStevila;
@@ -245,9 +244,4 @@ btn.addEventListener("click", () => {
   });
 }
 });
-
-function oninput(elem) {
-  let a = elem.value;
-console.log(a);
-}
 
