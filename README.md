@@ -1,4 +1,5 @@
 # Mediana-AP
+Node.js potreben.
 .env datoteko shraniti v mediana-app mapo. 
 Podatki potrebni v .env datoteki, po potrebi jih pralogodite:
 
@@ -10,5 +11,7 @@ DB_DATABASE = "baza"
 npm install
 
 nodemon server.js
+ali
+node server.js
 
 http://localhost:5500/index.html
