@@ -111,7 +111,6 @@ function pStevila() {
         return "0".repeat(zerosToAdd) + binaryString;
       }
 
-      // Izpis vrednosti v ustrezne celice
       for (let i = 0; i < medianaValues.length; i++) {
         const row = document.createElement("tr");
 
