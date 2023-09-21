@@ -1,4 +1,3 @@
-//
 const nakljucneStevilke = (min, max, times) => {
   const oneRandomNumber = []
 
@@ -8,13 +7,11 @@ const nakljucneStevilke = (min, max, times) => {
   return oneRandomNumber;
 };
 
-//funkcije ki se sprožijo ob nalaganju okna
 window.onload = function() {
   generateRandomNumbers();
   pStevila();
 };
 
-//generiraj 5 random števil
 document.getElementById("generateRandomNumbers").onclick = function(){
   generateRandomNumbers();
 };
@@ -25,7 +22,6 @@ function generateRandomNumbers() {
   vseStevilke.innerHTML = stevilke.join(", ");
 };
 
-//izbris enega naključno izbranega števila
 document.getElementById("izbris1").onclick = function(){
   izbris();
 };
@@ -34,15 +30,11 @@ function izbris() {
   const vsaSt = document.getElementById("stevilke");
   const prikSt = vsaSt.innerHTML;
   const stevilke = prikSt.split(", ").map(Number);
-
-//random določi število
-const rIzbris = Math.floor(Math.random() * stevilke.length);
-stevilke.splice(rIzbris, 1);
-
-vsaSt.innerHTML = stevilke.join(", ");
+  const rIzbris = Math.floor(Math.random() * stevilke.length);
+  stevilke.splice(rIzbris, 1);
+  vsaSt.innerHTML = stevilke.join(", ");
 };
 
-//eno naključno generirano število
 document.getElementById("enoStNakljucno").onclick = function(){
   eno_st();
 }
@@ -59,7 +51,6 @@ function eno_st() {
   }
 };
 
-//izbris vseh
 document.getElementById("izbrisVse").onclick = function(){
   izbrisV();
 };
@@ -69,7 +60,6 @@ function izbrisV() {
   abc.innerHTML = [];
 };
 
-//dodaj število
 function formSubmit() {
   const form = document.forms["selectNumberSlider"];
   const inputValue = form["amountInput"].value;
@@ -100,7 +90,6 @@ function calculateXOR(stevilke) {
   return xorValue;
 }
 
-//podatki za tabelo
 function pStevila() {
   axios.get("http://localhost:5500/api/mediana/get")
     .then(function(response) {
@@ -111,7 +100,6 @@ function pStevila() {
 
       const tbody = document.querySelector("#TabelaSt tbody");
 
-      // Izračun XOR med stevilo in avgValue na vsakem mestu
       for (let i = 0; i < medianaValues.length && i < averageValues.length; i++) {
         const xorValue = calculateXOR([medianaValues[i], averageValues[i]]);
         xorValues.push(xorValue);
@@ -131,32 +119,26 @@ function pStevila() {
         iCell.textContent = i + 1; 
         row.appendChild(iCell);
 
-        // Mediana
         const medianaCell = document.createElement("td");
         medianaCell.textContent = medianaValues[i];
         row.appendChild(medianaCell);
 
-        // Aritmetična sredina
         const aritmeticnaSredinaCell = document.createElement("td");
         aritmeticnaSredinaCell.textContent = averageValues[i];
         row.appendChild(aritmeticnaSredinaCell);
 
-        // XOR število
         const xorCell = document.createElement("td");
         xorCell.textContent = xorValues[i];
         row.appendChild(xorCell);
 
-        // Binarna mediana
         const binarnaMedianaCell = document.createElement("td");
         binarnaMedianaCell.textContent = addLeadingZeros(medianaValues[i], 10);
         row.appendChild(binarnaMedianaCell);
         
-        // Binarna aritmetična
         const binarnaAritmeticnaCell = document.createElement("td");
         binarnaAritmeticnaCell.textContent = addLeadingZeros(averageValues[i], 10);
         row.appendChild(binarnaAritmeticnaCell);
 
-        // Binarno XOR
         const binarnoXorCell = document.createElement("td");
         binarnoXorCell.textContent = addLeadingZeros(xorValues[i], 10);
         row.appendChild(binarnoXorCell);
@@ -171,11 +153,8 @@ function pStevila() {
 }
 
 function izrisGrafa(medianaValues, averageValues, xorValues) {
-  // Izris grafa
   const ctx = document.getElementById('myChart').getContext('2d');
-
   const labels = medianaValues.map((_, i) => (i + 1).toString()); 
-
   const data = {
     labels: labels,
     datasets: [
@@ -203,7 +182,7 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
   const options = {
     scales: {
       y: {
-        beginAtZero: true, // Postavi y-os na začetek pri vrednosti 0
+        beginAtZero: true,
       },
     },
     plugins: {
