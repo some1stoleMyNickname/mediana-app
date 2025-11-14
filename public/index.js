@@ -172,6 +172,8 @@ function pStevila() {
 
 function izrisGrafa(medianaValues, averageValues, xorValues) {
   // Izris grafa
+
+
   const ctx = document.getElementById('myChart').getContext('2d');
 
   const labels = medianaValues.map((_, i) => (i + 1).toString()); 
@@ -181,19 +183,19 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
     datasets: [
       {
         label: 'Mediana',
-        data: medianaValues,
+        data: medianaValues.slice(-25),
         borderColor: 'red',
         backgroundColor: 'transparent',
       },
       {
         label: 'Aritmetična sredina',
-        data: averageValues,
+        data: averageValues.slice(-25),
         borderColor: 'blue',
         backgroundColor: 'transparent',
       },
       {
         label: 'XOR število',
-        data: xorValues,
+        data: xorValues.slice(-25),
         borderColor: 'green',
         backgroundColor: 'transparent',
       },
