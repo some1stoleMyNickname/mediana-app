@@ -1,5 +1,5 @@
 //
-const nakljucneStevilke = (min, max, times) => {
+const randNumbers = (min, max, times) => {
   const oneRandomNumber = []
 
   for (let i = 0; i < times; i++) {
@@ -20,7 +20,7 @@ document.getElementById("generateRandomNumbers").onclick = function(){
 };
 
 function generateRandomNumbers() {
-  const stevilke = nakljucneStevilke(1, 1000, 5);
+  const stevilke = randNumbers(1, 1000, 5);
   const vseStevilke = document.getElementById("stevilke");
   vseStevilke.innerHTML = stevilke.join(", ");
 };
@@ -36,10 +36,15 @@ function izbris() {
   const stevilke = prikSt.split(", ").map(Number);
 
 //random določi število
-const rIzbris = Math.floor(Math.random() * stevilke.length);
-stevilke.splice(rIzbris, 1);
 
-vsaSt.innerHTML = stevilke.join(", ");
+  if (stevilke.length <= 1) {
+    alert("Dodajte število/a!");
+  } else {
+  const rIzbris = Math.floor(Math.random() * stevilke.length);
+  stevilke.splice(rIzbris, 1);
+
+  vsaSt.innerHTML = stevilke.join(", ");
+  }
 };
 
 //eno naključno generirano število
@@ -50,7 +55,7 @@ document.getElementById("enoStNakljucno").onclick = function(){
 function eno_st() {
   const vseStevilke = document.getElementById("stevilke");
   const pStevila = vseStevilke.innerHTML;
-  const stevilke = nakljucneStevilke(1, 1000, 1);
+  const stevilke = randNumbers(1, 1000, 1);
   const novaStevila = stevilke.join(", ");
   if (pStevila) {
     vseStevilke.innerHTML = pStevila + ", " + novaStevila;
@@ -66,7 +71,11 @@ document.getElementById("izbrisVse").onclick = function(){
 
 function izbrisV() {
   const abc = document.getElementById("stevilke");
-  abc.innerHTML = [];
+  if (abc.innerHTML == []) {
+    alert("Ni podanih števil!");
+  } else {
+    abc.innerHTML = [];
+  };
 };
 
 //dodaj število
@@ -170,6 +179,8 @@ function pStevila() {
     });
 }
 
+
+
 function izrisGrafa(medianaValues, averageValues, xorValues) {
   // Izris grafa
 
@@ -205,7 +216,7 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
   const options = {
     scales: {
       y: {
-        beginAtZero: true, // Postavi y-os na začetek pri vrednosti 0
+        beginAtZero: true,
       },
     },
     plugins: {
@@ -222,9 +233,9 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
     type: 'line',
     data: data,
     options: {
-      //responsive: false
       responsive: true,
-      //maintainAspectRatio: false, 
+      maintainAspectRatio: false,
+      
     },
   });
 }
