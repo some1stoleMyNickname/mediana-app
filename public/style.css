@@ -205,4 +205,6 @@ table.tbody tr:hover td{
 
  #myChart {
   background-color: rgba(34, 32, 32, 0.85);
+  /*width: 66vw;   /* 3/4 širine okna */
+  /*height: 66vh;  /* 2/3 višine okna */
  }

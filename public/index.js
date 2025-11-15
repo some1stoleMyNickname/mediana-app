@@ -222,8 +222,10 @@ function izrisGrafa(medianaValues, averageValues, xorValues) {
     type: 'line',
     data: data,
     options: {
-      responsive: false
-      },
+      //responsive: false
+      responsive: true,
+      //maintainAspectRatio: false, 
+    },
   });
 }
 
