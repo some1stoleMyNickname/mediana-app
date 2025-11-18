@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.container-about {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 90vh;
+  margin: 0 auto;
+}
+
+body {
+background-image: url('https://legallogik.com/wp-content/uploads/2019/12/rules-1920x960-1-1920x960.png');
+font-family: 'Roboto', 'sans-serif';
+background-size: cover;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center;
+align-items: center;
+}
+
+.row.justify-content-center {
+text-align: center;
+}
+  
+h2 {
+  font-size: 300%;
+}
+
+h1, h2, h3 {
+text-align: center;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.356);
+font-weight: bold;
+}
+
+
+.footer {
+position: static;
+bottom: 0;
+left: 0;
+right: 0;
+background-color: #333;
+color: white;
+text-align: center;
+overflow: hidden;
+padding: 20px;
+padding-bottom: 15px;
+}
+
+.about-text {
+text-align: center;
+}
+
+.about-text p {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.slider {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 60vh; 
+  height: 5px; 
+  background: #d3d3d3; 
+  outline: none; 
+  opacity: 1; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; 
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 10px; 
+  height: 10px;
+  background: rgb(32, 33, 33);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px; 
+  background: rgb(128, 128, 128); 
+  cursor: pointer; 
+}
+
+.btn-group-vertical #mediana button, .btn-group-vertical #gumbki button {
+  margin-bottom: 5px; 
+  width: 50px;
+  height: 40;
+}
+
+#mediana .btn {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  width: 66.2%;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+  min-width: 215px;
+}
+
+ #gumbki .btn {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  width: 33%;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+  min-width: 215px;
+}
+
+#izberiSt {
+  background-color: white;
+  border-color: rgb(32, 33, 33);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  color: rgb(32, 33, 33);
+  width: 15%;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.15s, color 0.15s;
+  min-width: 110px;
+}
+
+#izberiSt:hover, #mediana .btn:hover, #gumbki .btn:hover {
+  background-color: rgb(32, 33, 33);
+  color: white;
+}   
+
+#izberiSt.btn:active, #mediana .btn:active, #gumbki .btn:active{
+  opacity: 0.7;
+}
+
+#izberiSt .btn:hover, #gumbki .btn:hover, #mediana .btn:hover {
+  background-color: rgb(32, 33, 33);
+  color: white;
+}   
+
+table {
+  font-weight: bold;
+  font-family: 'Roboto', 'sans-serif';
+  border-style: solid;
+  border-width: 2px;
+  margin-bottom: 8px;
+}
+
+th,
+td 
+tr {
+  padding: 10px 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.reservation__fontcolor td{
+  color: rgb(249, 247, 247);
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(34, 32, 32, 0.5);
+  }
+
+ tr:nth-child(even) {
+  background-color: rgba(34, 32, 32, 0.85);
+  }
+
+table.tbody tr:hover td{
+    color: red;
+  }
+
+  table.reservation__fontcolor tr:hover td{
+    color: rgb(224, 232, 102);
+  }
+
+ #myChart {
+  background-color: rgba(34, 32, 32, 0.85);
+ }
+
+.chart-wrapper {
+  height: 30%;
+  width: 100%;
+  position: relative;
+  border-bottom: 10px solid transparent;
+}
