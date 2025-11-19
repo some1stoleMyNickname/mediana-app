@@ -33,49 +33,52 @@
             <button id="generateRandomNumbers" class="btn btn-block">Generiraj števila</button>           
             <button id="enoStNakljucno" class="btn btn-block">Dodaj naključno število</button>
           </div>
-            <div class="d-grid gap-2 d-md-block" id="gumbki">
-              <button id="izbris1" class="btn btn-block">Odstrani naključno število</button>
-              <button id="izbrisVse" class="btn btn-block">Izbris vseh števil</button>
-            </div>
-            <div id="mediana" class="d-grid gap-2 d-md-block">
-              <button id="post" class="btn btn-block">Izračunaj mediano</button>
-            </div>       
-            <div class="row">
-              <div id="form">
-                <form method="post" name="selectNumberSlider">  
-                <input type="range" id="slider" class="slider" name="amountRange" min="1" max="1000" value="500" oninput="this.form.amountInput.value=this.value" />  
-                <div>
-                  <input type="number" id="input" name="amountInput" min="1" max="1000" value="500" oninput="this.form.amountRange.value=this.value" />
-                  <input type="button" class="btn" id="izberiSt" onclick="formSubmit()" value="Dodaj število!">
-                </div>
-                </form>
+          <div class="d-grid gap-2 d-md-block" id="gumbki">
+            <button id="izbris1" class="btn btn-block">Odstrani naključno število</button>
+            <button id="izbrisVse" class="btn btn-block">Izbris vseh števil</button>
+          </div>
+          <div id="mediana" class="d-grid gap-2 d-md-block">
+            <button id="post" class="btn btn-block">Izračunaj mediano</button>
+          </div>       
+          <div class="row">
+            <div id="form">
+              <form method="post" name="selectNumberSlider">  
+              <input type="range" id="slider" class="slider" name="amountRange" min="1" max="1000" value="500" oninput="this.form.amountInput.value=this.value" />  
+              <div>
+                <input type="number" id="input" name="amountInput" min="1" max="1000" value="500" oninput="this.form.amountRange.value=this.value" />
+                <input type="button" class="btn" id="izberiSt" onclick="formSubmit()" value="Dodaj število!">
               </div>
+              </form>
             </div>
           </div>
-          <div>
-            <table class="table table-bordered table-hover table-sm table-responsive-md reservation__fontcolor" id="TabelaSt">
-              <thead class="table-dark">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Mediana</th>
-                  <th scope="col">Aritmetična<br>sredina</th>
-                  <th scope="col">XOR<br>število</th>
-                  <th scope="col">Mediana<br>Binarno število</th>
-                  <th scope="col">Aritmetično<br>Binarno število</th>
-                  <th scope="col">XOR<br>Binarno število</th>
-                </tr>
-              </thead>
-              <tbody>  
-              </tbody>
-            </table>
-          </div>
-         
-    <div style="width: 800px; position: relative; margin-left: auto; margin-right: auto;">
-      <canvas id="myChart" width="800" height="400"></canvas>
-    </div>
-  </div> 
-    <div id="footer">  
-    </div>
+        </div>
+        <div>
+          <table class="table table-bordered table-hover table-sm table-responsive-md reservation__fontcolor" id="TabelaSt">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Mediana</th>
+                <th scope="col">Aritmetična<br>sredina</th>
+                <th scope="col">XOR<br>število</th>
+                <th scope="col">Mediana<br>Binarno število</th>
+                <th scope="col">Aritmetično<br>Binarno število</th>
+                <th scope="col">XOR<br>Binarno število</th>
+              </tr>
+            </thead>
+            <tbody>  
+            </tbody>
+          </table>
+          
+        </div>   
+        <div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="myChart"></canvas>
+        </div>    
+         </div>
+      </div>
+    </div> 
+  <div id="footer"></div>
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
